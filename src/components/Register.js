@@ -51,7 +51,7 @@ export default function Register() {
 
             <button type="submit" class="btn btn-success mb-4">Register</button>
             <p className="message">{message}</p>
-         <Link  to="/login">  Sign In  </Link> <p>  If already have account{" "}</p>
+         <Link  to="/login"> <button class="btn btn-primary mb-4"> Sign In </button> </Link> <p>  If already have account{" "}</p>
             </form>
            
         </div>

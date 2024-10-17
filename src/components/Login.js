@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 export default function Login() {
 
@@ -11,13 +12,13 @@ export default function Login() {
                                       [e.target.name]: e.target.value });
      axios.defaults.withCredentials=true; 
 
-    /*  useEffect(()=>{
+   useEffect(()=>{
         const token=window.localStorage.getItem('token')
         if(token){
             navigate('/home');
         }
-     }, [navigate])
- */
+     }) 
+ 
     const onSubmit = async e => {
         e.preventDefault();
         try {
@@ -29,9 +30,7 @@ export default function Login() {
             console.log(res)
             if(res.request.statusText=== "OK"){
              console.log(res.data);
-             window.localStorage.setItem("token", res.data.token);
-         /*     window.localStorage.setItem("auth", true); */
-             console.log(res.data.token) 
+             window.localStorage.setItem('token',res.data.token)
                 navigate("/home")
             }
         } catch (err) {
@@ -39,14 +38,7 @@ export default function Login() {
             navigate("/")   
         }
     };
-   useEffect(()=>{
-        let token=window.localStorage.getItem("token"); 
-        if(token)
-        {
-            navigate("/home") 
-        }
-        
-      }) 
+ 
   
     return (
         <div className="auth-form">
@@ -68,8 +60,9 @@ export default function Login() {
                      onChange={onChange} 
                      required /><br/>
 
-        <button type="submit" class="btn btn-success mb-4">Login</button>
-           
+        <button type="submit" class="btn btn-success mb-4">Login</button> <br/>
+            <Link  to="/forgotPassword" style={{textDecoration:"None"}}>
+                     Forgot password? </Link>
         
             </form>
            
@@ -82,3 +75,15 @@ export default function Login() {
 
 
 
+/* window.localStorage.setItem("token", res.data.token);
+ 
+    console.log(res.data.token) 
+
+    useEffect(()=>{
+        let token=window.localStorage.getItem("token"); 
+        if(token)
+        {
+            navigate("/home") 
+        }
+        
+      })  */

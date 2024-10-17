@@ -32,7 +32,7 @@ return (
           
           <h1> HOME </h1>
           {arryvalue}
-          <Logout />
+        <Logout />
           </header>
         </div>
 );

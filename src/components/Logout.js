@@ -12,8 +12,7 @@ export default function Logout() {
     })
     console.log(res)
     if(res.request.status=== 200){
-        window.localStorage.removeItem("token")
-       /*  window.localStorage.setItem("auth", false); */
+       window.localStorage.removeItem('token')
         navigate("/login")}
   }catch(error){
      console.log(error)
@@ -30,20 +29,8 @@ return (
 );
 }
 
-/* const [tasks,setTasks]=useState([])
-  useEffect(()=>{
-  const fetchData=async()=>{
-      const res=await axios.get('http://localhost:5000/api/property')
-      setTasks(res.data)
-  }
-fetchData()
-  },[])
 
-  
 
-const arryvalue= tasks.map((list,i)=>{
-  return <div key={i}>{list.res}
-  </div>
- })
 
- */ 
+
+/* window.localStorage.removeItem("token") */
